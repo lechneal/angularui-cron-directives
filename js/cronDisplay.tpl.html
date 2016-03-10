@@ -1,0 +1,12 @@
+<div ng-show="cronExpression">
+	<span ng-show="!showCron">
+		<div ng-show="cron.selectedDays">{{'EVENT_REPEAT_T_DAYS' | translate}}: {{cron.selectedDays}}</div>
+		<div ng-hide="cron.selectedDays || cron.selectedWeekdays">{{'EVENT_REPEAT_T_ALL_DAYS' | translate}}</div>
+		<div ng-show="cron.selectedWeekdays">{{'EVENT_REPEAT_T_WEEKDAYS' | translate}}: {{cron.selectedWeekdays}}</div>
+		<div ng-show="cron.selectedMonths">{{'EVENT_REPEAT_T_MONTHS' | translate}}: {{cron.selectedMonths}}</div>
+		<div ng-hide="cron.selectedMonths">{{'EVENT_REPEAT_T_ALL_MONTHS' | translate}}</div>
+	</span>
+	<span ng-show="showCron">
+		<div>{{cronExpression}}</div>
+	</span>
+</div>

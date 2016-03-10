@@ -1,0 +1,15 @@
+{
+  "author": "Alexander Lechner",
+  "name": "angularui-cron-directives",
+  "version": "0.5.1",
+  "homepage": "https://github.com/lechneal/angularui-cron-directives.git",
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.github.com/lechneal/angularui-cron-directives/master/LICENSE"
+  },
+  "bugs": "https://github.com/lechneal/angularui-cron-directives/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lechneal/angularui-cron-directives.git"
+  },
+}
