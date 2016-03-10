@@ -32,7 +32,7 @@ Shows when the cron expression is triggered
 Shows the next x dates, when the cron expression is triggered
 
 ## Demo
-Check out the demo: demo/demo.html
+Check out the demo: https://rawgit.com/lechneal/angularui-cron-directives/master/demo/demo.html
 
 ## License
 The MIT License (MIT)
