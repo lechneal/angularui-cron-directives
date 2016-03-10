@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Demo</title>		
+		<script type="text/javascript" src="js/angular.min.js"></script> 
+    	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+    
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<script type="text/javascript" src="js/angular-translate.min.js"></script>
+		<script type="text/javascript" src="js/later.min.js"></script>
+		<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+		<script type="text/javascript" src="js/ui-bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
+		<script type="text/javascript" src="js/checklist-model.js"></script>
+		<script type="text/javascript" src="../js/i18n/lang-de.js"></script>
+		<script type="text/javascript" src="../js/i18n/lang-en.js"></script>
+		<script type="text/javascript" src="../js/i18n/lang-fr.js"></script>
+		<script type="text/javascript" src="../js/i18n/lang-it.js"></script>
+		<script type="text/javascript" src="main.min.js"></script>
+		<script type="text/javascript">
+			angular.module('demoApp', [ 
+				'pascalprecht.translate', 
+				'angularui-cron-directives',
+				'checklist-model','ngAnimate',
+				'ui.bootstrap','ui.bootstrap.tabs']
+			)
+			.config(function ($translateProvider, TRANSLATIONS) {
+				$translateProvider.translations('de', TRANSLATIONS.list_de);
+				$translateProvider.translations('en', TRANSLATIONS.list_en);
+				$translateProvider.translations('it', TRANSLATIONS.list_it);
+				$translateProvider.translations('fr', TRANSLATIONS.list_fr);
+				  
+				$translateProvider.fallbackLanguage('en');
+				$translateProvider.determinePreferredLanguage();
+			})
+			.controller('demoCtrl', function($scope, $timeout) {
+				$scope.currentCron = "0 0 * * *";
+			});
+		</script>
+	</head>
+	<body ng-app="demoApp">
+		<div class="container" ng-controller="demoCtrl">
+			<div class="panel panel-default ">	
+				<div class="panel-heading">Example of ng-cron-input </div>
+				<form name="form"  class=" panel-body form-horizontal" novalidate >
+					<div style="margin:20px 0px;">
+						<div><b>Computed Cron Expression</b></div>
+						{{currentCron}}
+					</div>	
+					<div style="margin:20px 0px;">
+						<div><b>Cron Input Directive ng-cron-input</b></div>
+					    <div  >    	
+					        <ng-cron-input 
+						        name="cronExpression" 
+						        ng-model="currentCron" >
+					        </ng-cron-input>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div  class="panel panel-default ">	
+				<div class="panel-heading">Example of ng-cron-display </div>
+				<div class="panel-body">
+					Cron is valid: <ng-cron-display ng-model="currentCron"/>
+				</div>
+			</div>
+			<div  class="panel panel-default ">	
+				<div class="panel-heading">Example of ng-next-cron-dates</div>
+				<div class="panel-body">
+					Cron is valid: <ng-next-cron-dates ng-model="currentCron" preview-count="5" date-format="ddd, L" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
