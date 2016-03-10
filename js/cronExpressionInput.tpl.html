@@ -1,0 +1,107 @@
+<uib-tabset  active="activeTab" > 
+	<uib-tab index="1" select="selectTab(REPEAT_TYPE.DAILY)" >
+		<uib-tab-heading>{{'DAILY' | translate}}</uib-tab-heading>
+		<div class="control-group">
+			<label class="control-label" for="eventRepeatDailyDayType">{{'DAYS' | translate}}</label>
+			<div class="controls">
+				<select name="eventRepeatDailyDayType" ng-model="cronData.dailyRepetition" >
+					<option value="{{REPEAT_TYPE.EVERYDAY}}">{{'EVERYDAY' | translate}}</option>
+					<!-- 
+					<option value="{{REPEAT_TYPE.EVERYXDAYS}}">{{'EVERYXDAY' | translate}}</option>
+					 -->
+					<option value="{{REPEAT_TYPE.SELECTEDDAYS}}">{{'SELECTDAYS' | translate}}</option>
+				</select>
+			</div>
+			<!-- 
+			<div class="controls" ng-show="cronData.dailyRepetition == REPEAT_TYPE.EVERYXDAYS">
+				{{'EVERY' | translate}} 
+				<select  ng-model="cronData.xdays" >
+					<option ng-repeat="day in [] | range:1:31"> {{day}}</option>
+				</select>
+				{{'DAYS' | translate}} 
+			</div>
+			 -->
+			<div class="controls" ng-show="cronData.dailyRepetition == REPEAT_TYPE.SELECTEDDAYS">
+				<span ng-repeat="day in [] | range:1:31"> 
+				  <input type="checkbox" name="eventRepeatDailyDays" checklist-model="cronData.selectedDays" checklist-value="day"  />{{day}}
+				</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="eventRepeatDailyMonthType">{{'MONTHS' | translate}}</label>
+			<div class="controls">
+				<select name="eventRepeatDailyMonthType" ng-model="cronData.monthlyRepetition"  >
+					<option value="{{REPEAT_TYPE.EVERYMONTH}}">{{'EVERYMONTH' | translate}}</option>
+					<option value="{{REPEAT_TYPE.SELECTEDMONTHS}}">{{'SELECTMONTH' | translate}}</option>
+				</select>
+			</div>
+			<div class="controls" ng-show="cronData.monthlyRepetition == REPEAT_TYPE.SELECTEDMONTHS">
+				<span ng-repeat="month in [] | range:1:12"> 
+				  <input type="checkbox" checklist-model="cronData.selectedMonths" checklist-value="month" />{{month}}
+				</span>
+			</div>
+		</div>
+	</uib-tab> 
+	<uib-tab index="2" select="selectTab(REPEAT_TYPE.WEEKLY)"  >
+		<uib-tab-heading>{{'WEEKLY' | translate}}</uib-tab-heading>
+		<div class="control-group" ">
+			<label class="control-label" for="eventRepeatWeeklyWeekdays">{{'WEEKDAYS' | translate}}</label>
+			<div class="controls">
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="1" />
+					{{'MONDAY' | translate}}
+				</label>
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="2" />
+					{{'THUESDAY' | translate}}
+				</label>
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="3" />
+					{{'WEDNESDAY' | translate}}
+				</label>
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="4" />
+					{{'THURSDAY' | translate}}
+				</label>
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="5" />
+					{{'FRIDAY' | translate}}
+				</label>
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="6" />
+					{{'SATURDAY' | translate}}
+				</label>
+				<label>
+					<input type="checkbox" name="eventRepeatWeeklyWeekdays" checklist-model="cronData.selectedWeekdays" checklist-value="0" />
+					{{'SUNDAY' | translate}}
+				</label>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="eventRepeatWeeklyMonthType">{{'MONTHS' | translate}}</label>
+			<div class="controls">
+				<select name="eventRepeatWeeklyMonthType" ng-model="cronData.monthlyRepetition">
+					<option value="{{REPEAT_TYPE.EVERYMONTH}}">{{'EVERYMONTH' | translate}}</option>
+					<option value="{{REPEAT_TYPE.SELECTEDMONTHS}}">{{'SELECTMONTH' | translate}}</option>
+				</select>
+			</div>
+			<div class="controls" ng-show="cronData.monthlyRepetition == REPEAT_TYPE.SELECTEDMONTHS">
+				<span ng-repeat="month in [] | range:1:12"> 
+				  <input type="checkbox" checklist-model="cronData.selectedMonths" checklist-value="month">{{month}}
+				</span>
+			</div>
+		</div>
+	</uib-tab> 
+	<uib-tab index="3" select="selectTab(REPEAT_TYPE.EXPERT)"  >
+		<uib-tab-heading>{{'EXPERT_SETTINGS' | translate}}</uib-tab-heading>
+		<div class="control-group">
+			<label class="control-label" for="cronExpr">{{'CRON_EXPRESSION' | translate}}</label>
+			<div class="controls">
+				<input type="text" name="cronExpr"  ng-model="cronData.cronExpression"  >
+			</div>
+		</div>
+	</uib-tab> 
+</uib-tabset>
+<!-- 
+	{{cronData}}
+ -->	 

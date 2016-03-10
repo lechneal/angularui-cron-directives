@@ -1,0 +1,5 @@
+<ul ng-show="show && nextDates.length > 0">
+	<li ng-repeat="date in nextDates">
+		 <i class="icon-time"></i> {{date | dateMoment : dateFormat}}
+	</li>
+</ul>
